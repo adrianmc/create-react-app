@@ -1,4 +1,7 @@
 module.exports = {
+  paths: {
+    public: 'build/',
+  },
   files: {
     javascripts: {
       joinTo: {
