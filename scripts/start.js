@@ -11,8 +11,9 @@ process.env.NODE_ENV = 'development';
 
 var path = require('path');
 var chalk = require('chalk');
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
+// var webpack = require('webpack');
+// var WebpackDevServer = require('webpack-dev-server');
+var shell = require('shelljs')
 var execSync = require('child_process').execSync;
 var opn = require('opn');
 var detect = require('detect-port');
@@ -172,8 +173,10 @@ function runDevServer(port) {
 }
 
 function run(port) {
-  setupCompiler(port);
-  runDevServer(port);
+  shell.cd('template');
+  shell.exec('brunch watch --server');
+  // setupCompiler(port);
+  // runDevServer(port);
 }
 
 detect(DEFAULT_PORT).then(port => {
